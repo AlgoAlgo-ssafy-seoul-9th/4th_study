@@ -95,7 +95,29 @@ def solution(orders, course):
 ## [성구](./블로그/성구.py)
 
 ```py
+# 21921 블로그
+import sys
+input = sys.stdin.readline
 
+N, X = map(int, input().split())
+visited = list(map(int, input().split()))
+
+if max(visited):
+    cnt = 1
+    maxV = accum = sum(visited[0:X])
+    for i in range(X, N):
+        accum -= visited[i-X]
+        accum += visited[i]
+        if maxV < accum:
+            maxV = accum
+            cnt = 1
+        elif maxV == accum:
+            cnt += 1
+    print(maxV)
+    print(cnt)
+
+else:
+    print('SAD')
 ```
 
 ## [민웅](./블로그/민웅.py)
