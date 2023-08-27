@@ -154,6 +154,28 @@ else:
 ## [병국](./블로그/병국.py)
 
 ```py
+# 틀렸습니다 2% ...
+n,x = map(int,input().split())
+arr = list(map(int,input().split()))
+maxx = sum(arr[:x])
+cnt = 1
+
+for i in range(x,n):
+    plus = arr[i] - arr[i-x]
+    if plus < 0:
+        pass
+    elif plus == 0:
+        cnt += 1
+    else:
+        maxx += plus
+        cnt = 1
+if maxx == 0:
+    print("SAD")
+else:
+    print(maxx)
+print(cnt)
+
+
 
 ```
 
@@ -234,6 +256,28 @@ print(max_cnt)
 ## [병국](./회전%20초밥/병국.py)
 
 ```py
+n,d,k,c = map(int,input().split())
+#접시, 초밥가짓수, 연속접시수, 쿠폰번호
+
+bob_li = []
+for _ in range(n):
+    bob = int(input())
+    bob_li.append(bob)
+
+maxx = 0
+for i in range(len(bob_li)):
+    if i+k <= len(bob_li):
+        if c in bob_li[i:i+k]:
+            maxx = max(maxx,len(set(bob_li[i:i+k])))
+        else:
+            maxx = max(maxx,len(set(bob_li[i:i+k]))+1)
+    else:
+        new = bob_li[i:]+bob_li[:i+k-len(bob_li)]
+        if c in new:
+            maxx = max(maxx,len(set(new)))
+        else:
+            maxx = max(maxx,len(set(new))+1)
+print(maxx)
 
 ```
 
