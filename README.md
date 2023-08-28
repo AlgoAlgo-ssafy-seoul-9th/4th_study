@@ -206,7 +206,7 @@ input = sys.stdin.readline
 #     print(cnt)
 
 # 2차 시도
-
+# 왜 틀렸는지 알아내는 사람 커피 사 줌
 N, X = map(int, input().split())
 visitors = list(map(int, input().split()))
 max = tmp = sum(visitors[:X])
